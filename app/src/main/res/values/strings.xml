@@ -1,0 +1,63 @@
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name">QuizApp</string>
+<!--
+    <string name="question_2"> <![CDATA[ <b>2.</b> normal This is the question 2?]]></string>
+-->
+
+    <string name="personal_info">Personal Information</string>
+    <string name="name">Name: </string>
+    <string name="name_value">Name</string>
+    <string name="age_value">Age</string>
+    <string name="years">years</string>
+    <string name="genre">Genre: </string>
+    <string name="genre_male">Male</string>
+    <string name="genre_female">Female</string>
+    <string name="quiz_questions">Quiz Questions - Occupations</string>
+    <string name="question1">The Occupations are divide into 3 main sectors: Primary, Secondary and Tertiary. Of the following professions which belong to the primary sector?</string>
+    <string name="question2">Of the following equipments, which are used in fishing?</string>
+    <string name="question3">What is the name of the person who treats a garden?</string>
+    <string name="question4">What is the instrument that a pianist plays?</string>
+    <string name="question5">What\'s the name of the profession you work in a bar?</string>
+    <string name="question6">Which of the following professions is related to Communication/ Media?</string>
+    <string name="question1_checkbox1_value">Farmer</string>
+    <string name="question1_checkbox2_value">Machine Operator</string>
+    <string name="question1_checkbox3_value">Receptionist</string>
+    <string name="question1_checkbox4_value">Shepherd</string>
+    <string name="question2_checkbox1_value">Nets</string>
+    <string name="question2_checkbox2_value">Rod</string>
+    <string name="question2_checkbox3_value">Sickle</string>
+    <string name="question2_checkbox4_value">Hoe</string>
+    <string name="question3_radiobutton1_value">Lawyer</string>
+    <string name="question3_radiobutton2_value">Treasurer</string>
+    <string name="question3_radiobutton3_value">Gardener</string>
+    <string name="question4_radiobutton1_value">Saxophone</string>
+    <string name="question4_radiobutton2_value">Piano</string>
+    <string name="question4_radiobutton3_value">Guitar</string>
+    <string name="question5_textview_value" translatable="false">barman</string>
+    <string name="question6_radiobutton1_value">Journalist</string>
+    <string name="question6_radiobutton2_value">Engineer</string>
+    <string name="question6_radiobutton3_value">Teacher</string>
+    <string name="toast_all_field">Some of your fields aren\'t complete. Please verify.</string>
+    <string name="toast_personalinfo_correct">Some of your Personal Information fields aren\'t correct. Please verify.</string>
+    <string name="toast_personalinfo_complete">Some of your Personal Information fields aren\'t complete. Please verify.</string>
+    <string name="toast_questionfileds">Some of your Question fields aren\'t complete Please verify.</string>
+    <string name="toast_question1_correct">Question 1 correct</string>
+    <string name="toast_question1_incorrect">Question 1 incorrect</string>
+    <string name="toast_question2_correct">\nQuestion 2 correct</string>
+    <string name="toast_question2_incorrect">\nQuestion 2 incorrect</string>
+    <string name="toast_question3_correct">\nQuestion 3 correct</string>
+    <string name="toast_question3_incorrect">\nQuestion 3 incorrect</string>
+    <string name="toast_question4_correct">\nQuestion 4 correct</string>
+    <string name="toast_question4_incorrect">\nQuestion 4 incorrect</string>
+    <string name="toast_question5_correct">\nQuestion 5 correct</string>
+    <string name="toast_question5_incorrect">\nQuestion 5 incorrect</string>
+    <string name="toast_question6_correct">\nQuestion 6 correct</string>
+    <string name="toast_question6_incorrect">\nQuestion 6 incorrect</string>
+    <string name="result">Result</string>
+    <string name="reset">Reset</string>
+    <string name="submit">Send</string>
+    <string name="toast_send_message_wrong">Any result to send. Validate the answers first.</string>
+    <string name="send_summary_email_subject">Quiz results of <xliff:g id="name" example="John">%s</xliff:g></string>
+
+
+</resources>
