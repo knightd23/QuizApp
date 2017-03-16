@@ -48,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     /**
+     * Save the values when have some changes in the app state
      * @param save
      */
     @Override
@@ -64,6 +65,7 @@ public class MainActivity extends AppCompatActivity {
         save.putString("question5_answer", question5_answer);
         save.putInt("question6_answer", question6_answer);
         save.putInt("flag_showResult", flag_showResult);
+        save.putString("message", message);
 
         super.onSaveInstanceState(save);
     }
@@ -86,6 +88,7 @@ public class MainActivity extends AppCompatActivity {
         question4_answer = savedInstanceState.getInt("question4_answer");
         question6_answer = savedInstanceState.getInt("question6_answer");
         flag_showResult = savedInstanceState.getInt("flag_showResult");
+        message = savedInstanceState.getString("message");
 
         display_content();
         if (flag_showResult == 1)
@@ -122,7 +125,7 @@ public class MainActivity extends AppCompatActivity {
         RadioGroup RG_question6 = (RadioGroup) findViewById(R.id.radiogroup_question6);
 
 
-        /*Display the values before the rotation*/
+        /*Display the values before the state change*/
         display_edittext(name_person, person_name, getString(R.string.name_value));
         name_person.getBackground().setColorFilter(ContextCompat.getColor(getApplicationContext(), R.color.colorPrimary), PorterDuff.Mode.SRC_ATOP);
         display_edittext(age_person, Integer.toString(person_age), getString(R.string.age_value));
@@ -141,6 +144,12 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * This function display the radio button selected into a radio group of 2 elements.
+     * In this app this radio grouup of 2 elements is used only in one specific ocasion the just receive this parameters
+     * @param value
+     * @param RG_value
+     */
     private void display_genretype(int value, RadioGroup RG_value) {
         RG_value.clearCheck();
         RadioButton genre_m = (RadioButton) findViewById(R.id.genre_male);
@@ -160,6 +169,14 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * This function display the radio button selected into a radio group of 3 elements
+     * @param value
+     * @param RG_value
+     * @param rbt_1
+     * @param rbt_2
+     * @param rbt_3
+     */
     private void display_radiogroup_3(int value, RadioGroup RG_value, RadioButton rbt_1, RadioButton rbt_2, RadioButton rbt_3) {
 
         RG_value.clearCheck();
@@ -171,20 +188,23 @@ public class MainActivity extends AppCompatActivity {
             switch (value) {
                 case 1:
                     rbt_1.setChecked(true);
-                    Log.i("display_radiogroup_3", "Option 1 selected");
                     break;
                 case 2:
                     rbt_2.setChecked(true);
-                    Log.i("display_radiogroup_3", "Option 2 selected");
                     break;
                 case 3:
                     rbt_3.setChecked(true);
-                    Log.i("display_radiogroup_3", "Option 3 selected");
                     break;
             }
         }
     }
 
+    /**
+     * Display the data into edittext
+     * @param Edt_view
+     * @param text_data
+     * @param hint_data
+     */
     private void display_edittext(EditText Edt_view, String text_data, String hint_data) {
 
         if (text_data.length() <= 0 || text_data.equals("-1")) {
@@ -195,6 +215,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    /**
+     * Display the states of the checkboxes
+     * @param checkbox_value
+     * @param chb_1
+     * @param chb_2
+     * @param chb_3
+     * @param chb_4
+     */
     private void display_checkboxes(int checkbox_value, CheckBox chb_1, CheckBox chb_2, CheckBox chb_3, CheckBox chb_4) {
         /*Guarantee the the checkboxes are cleared*/
         chb_1.setChecked(false);
@@ -241,6 +269,9 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * Verify when exist changes into the foucs of the edittext
+     */
     private View.OnFocusChangeListener Edt_onFocusChange =  new View.OnFocusChangeListener() {
         public void onFocusChange(View v, boolean hasFocus) {
             Log.i("onFocusChange", "Inside");
@@ -254,39 +285,32 @@ public class MainActivity extends AppCompatActivity {
     };
 
 
+    /**
+     *  This function is called always that have a change into the app state
+     * @param newConfig
+     */
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
 
-        Log.i("onConfigurationChanged", "Inside");
-
-        // Checks the orientation of the screen
-        if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
-            Toast.makeText(this, "landscape", Toast.LENGTH_SHORT).show();
-        } else if (newConfig.orientation == Configuration.ORIENTATION_PORTRAIT) {
-            Toast.makeText(this, "portrait", Toast.LENGTH_SHORT).show();
-        }
-
         if (newConfig.keyboardHidden == Configuration.KEYBOARDHIDDEN_YES) {
-            Log.i("onConfigurationChanged", "Keyboard hidden");
             EText_name.clearFocus();
             EText_age.clearFocus();
             EText_qt5.clearFocus();
-        } else if (newConfig.keyboardHidden == Configuration.KEYBOARDHIDDEN_NO) {
-            Log.i("onConfigurationChanged", "Keyboard not hidden");
         }
 
-        if (newConfig.hardKeyboardHidden == Configuration.HARDKEYBOARDHIDDEN_NO) {
-            Log.i("onConfigurationChanged", "Keyboard not hidden");
-        } else if (newConfig.hardKeyboardHidden == Configuration.HARDKEYBOARDHIDDEN_YES) {
-            Log.i("onConfigurationChanged", "Keyboard hidden");
+        if (newConfig.hardKeyboardHidden == Configuration.HARDKEYBOARDHIDDEN_YES) {
             EText_name.clearFocus();
             EText_age.clearFocus();
             EText_qt5.clearFocus();
         }
     }
 
-
+    /**
+     * This function is calles every time that display is pressed, in this case is used to close the soft key when we touch in outside of the keypad
+     * @param ev
+     * @return
+     */
     @Override
     public boolean dispatchTouchEvent(MotionEvent ev) {
         View view = getCurrentFocus();
@@ -306,18 +330,18 @@ public class MainActivity extends AppCompatActivity {
 
         if (ev.getAction() == MotionEvent.ACTION_DOWN) {
 
-//            Log.i("dispatchTouchEvent", "Save values");
             person_name = EText_name.getString_value();
             person_age = EText_age.getInt_value();
             question5_answer = EText_qt5.getString_value();
 
-//            Log.i("dispatchTouchEvent", "person_name: " + person_name);
-//            Log.i("dispatchTouchEvent", "person_age: " + person_age);
-//            Log.i("dispatchTouchEvent", "question5_answer: " + question5_answer);
         }
         return super.dispatchTouchEvent(ev);
     }
 
+    /**
+     * This function is called when is pressed the button Results
+     * @param view
+     */
     public void show_result(View view) {
         //show a toast with the number of correct questions
         message = calculate_results();
@@ -333,6 +357,10 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * Save the radio group genre choice
+     * @param view
+     */
     public void genre_type(View view) {
         // Is the button now checked?
         boolean checked = ((RadioButton) view).isChecked();
@@ -352,6 +380,10 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Save the checkbox 1 value for the question 1
+     * @param view
+     */
     public void checkbox_qt1_1(View view) {
         CheckBox ch = (CheckBox) findViewById(R.id.checkbox_qt1_1);
         if (ch.isChecked()) {
@@ -362,6 +394,10 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * Save the checkbox 2 value for the question 1
+     * @param view
+     */
     public void checkbox_qt1_2(View view) {
         CheckBox ch = (CheckBox) findViewById(R.id.checkbox_qt1_2);
         if (ch.isChecked()) {
@@ -371,6 +407,10 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Save the checkbox 3 value for the question 1
+     * @param view
+     */
     public void checkbox_qt1_3(View view) {
         CheckBox ch = (CheckBox) findViewById(R.id.checkbox_qt1_3);
         if (ch.isChecked()) {
@@ -380,6 +420,10 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Save the checkbox 4 value for the question 1
+     * @param view
+     */
     public void checkbox_qt1_4(View view) {
         CheckBox ch = (CheckBox) findViewById(R.id.checkbox_qt1_4);
         if (ch.isChecked()) {
@@ -390,6 +434,10 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * Save the checkbox 1 value for the question 2
+     * @param view
+     */
     public void checkbox_qt2_1(View view) {
         CheckBox ch = (CheckBox) findViewById(R.id.checkbox_qt2_1);
         if (ch.isChecked()) {
@@ -399,6 +447,10 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Save the checkbox 2 value for the question 2
+     * @param view
+     */
     public void checkbox_qt2_2(View view) {
         CheckBox ch = (CheckBox) findViewById(R.id.checkbox_qt2_2);
         if (ch.isChecked()) {
@@ -408,6 +460,10 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Save the checkbox 3 value for the question 2
+     * @param view
+     */
     public void checkbox_qt2_3(View view) {
         CheckBox ch = (CheckBox) findViewById(R.id.checkbox_qt2_3);
         if (ch.isChecked()) {
@@ -417,6 +473,10 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Save the checkbox 4 value for the question 2
+     * @param view
+     */
     public void checkbox_qt2_4(View view) {
         CheckBox ch = (CheckBox) findViewById(R.id.checkbox_qt2_4);
         if (ch.isChecked()) {
@@ -426,6 +486,10 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Save the radio group choice for the question 3
+     * @param view
+     */
     public void radiobutton_qt3(View view) {
         // Is the button now checked?
         boolean checked = ((RadioButton) view).isChecked();
@@ -449,6 +513,10 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Save the radio group choice for the question 4
+     * @param view
+     */
     public void radiobutton_qt4(View view) {
         // Is the button now checked?
         boolean checked = ((RadioButton) view).isChecked();
@@ -473,6 +541,10 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Save the radio group choice for the question 6
+     * @param view
+     */
     public void radiobutton_qt6(View view) {
         // Is the button now checked?
         boolean checked = ((RadioButton) view).isChecked();
@@ -498,6 +570,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    /**
+     * Compute the results to be show
+     * @return
+     */
     public String calculate_results() {
 
         String message = "";
@@ -523,6 +599,7 @@ public class MainActivity extends AppCompatActivity {
         RadioButton question6_3 = (RadioButton) findViewById(R.id.radiobutton_qt6_3);
 
 
+        //verify if any of the fiels are incomplete
         if (person_name == null || person_age <= 0 || person_age >= 150 || genre_type == -1) {
             if (question5_answer == null || question1_answer <= 0 || question2_answer <= 0 || question3_answer <= 0 || question4_answer <= 0 || question6_answer <= 0) {
                 message = getString(R.string.toast_all_field);
@@ -621,6 +698,10 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * Is called when the Reset button is pressed and make a reset to the variables
+     * @param view
+     */
     public void reset_result(View view) {
 
         person_name = "";
@@ -638,6 +719,10 @@ public class MainActivity extends AppCompatActivity {
         display_content();
     }
 
+    /**
+     * Send the results via email
+     * @param view
+     */
     public void submitResult(View view) {
 
         if(message.isEmpty()) {

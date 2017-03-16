@@ -42,53 +42,34 @@ public class My_EditText extends EditText {
     @Override
     protected void onTextChanged(CharSequence text, int start, int lengthBefore, int lengthAfter) {
         super.onTextChanged(text, start, lengthBefore, lengthAfter);
-        Log.i("InputTypeonTextChanged", "" + getInputType());
         if (getInputType() == TYPE_CLASS_NUMBER) {
-            Log.i("InputTypeonTextChanged", "Input Type: NUMBER");
             try {
                 if (Integer.parseInt(getText().toString()) >= 0)
                     valueInt = Integer.parseInt(getText().toString());
                 else
                     valueInt = -1;
             } catch (Exception n) {
-                Log.i("InputTypeonTextChanged", n.getMessage());
+//                Log.i("InputTypeonTextChanged", n.getMessage());
                 valueInt = -1;
             }
-            Log.i("Edit name onTextChanged", "" + valueInt);
         } else if (getInputType() == (TYPE_TEXT_FLAG_CAP_WORDS + 1)) {
-            Log.i("InputTypeonTextChanged", "Input Type: TEXT");
             if (getText().length() <= 0)
                 valueString = "";
             else
                 valueString = text.toString();
-            Log.i("Edit name onTextChanged", "" + valueString);
+//            Log.i("Edit name onTextChanged", "" + valueString);
         } else {
-            Log.i("InputTypeonTextChanged", "Input Type: OTHER");
+//            Log.i("InputTypeonTextChanged", "Input Type: OTHER");
             valueString = "";
-            Log.i("Edit name onTextChanged", "" + valueString);
+//            Log.i("Edit name onTextChanged", "" + valueString);
         }
     }
 
 
-
-
-//    @Override
-//    protected void onFocusChanged(boolean focused, int direction, Rect previouslyFocusedRect) {
-//        super.onFocusChanged(focused, direction, previouslyFocusedRect);
-//        if (!focused) {
-//            //lost focus
-//            save_value_Ptr = getText().toString();
-//            Log.i("Edit name Lost Focus", "" + save_value_Ptr);
-//        }
-//    }
-
     @Override
     public void onEditorAction(int actionCode) {
         super.onEditorAction(actionCode);
-//        if (actionCode == android.view.KeyEvent.KEYCODE_BACK) {
-//            Log.i("EditorActionListener", "Back pressed");
-//            clearFocus();
-//        }
+
         if (actionCode == EditorInfo.IME_ACTION_DONE) {
             Log.i("EditorActionListener", "Enter pressed");
             clearFocus();

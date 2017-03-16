@@ -8,4 +8,70 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="Style_button">
+        <item name="android:layout_width">@dimen/margin_padding_0</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:textSize">@dimen/text_size</item>
+    </style>
+
+    <style name="Style_radiobutton">
+        <item name="android:layout_width">@dimen/margin_padding_0</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:textSize">@dimen/text_size</item>
+        <item name="android:buttonTint">@android:color/black</item>
+    </style>
+
+    <style name="Style_radiogroup">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_marginTop">@dimen/margin_padding_1</item>
+        <item name="android:orientation">horizontal</item>
+    </style>
+
+    <style name="Style_questionnumber">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/text_size</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="Style_questioncontent">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/text_size</item>
+    </style>
+
+    <style name="Style_question_linearlayout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/margin_padding_2</item>
+        <item name="android:orientation">horizontal</item>
+    </style>
+
+    <style name="Style_edittext">
+        <item name="android:backgroundTint">@color/colorPrimary</item>
+        <item name="android:cursorVisible">false</item>
+        <item name="android:focusable">true</item>
+        <item name="android:focusableInTouchMode">true</item>
+        <item name="android:imeOptions">actionDone</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:textSize">@dimen/text_size</item>
+    </style>
+
+    <style name="Style_checkbox">
+        <item name="android:layout_width">@dimen/margin_padding_0</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_gravity">left|center_vertical</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:buttonTint">@android:color/black</item>
+        <item name="android:focusable">false</item>
+        <item name="android:focusableInTouchMode">false</item>
+    </style>
+
+
+
 </resources>

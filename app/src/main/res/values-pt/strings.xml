@@ -2,10 +2,10 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name">QuizApp</string>
     <string name="age_value">Idade</string>
-    <string name="genre">Género</string>
+    <string name="genre">Género: </string>
     <string name="genre_female">Feminino</string>
     <string name="genre_male">Masculino</string>
-    <string name="name">Nome:</string>
+    <string name="name">Nome: </string>
     <string name="name_value">Nome</string>
     <string name="personal_info">Informação Pessoal</string>
     <string name="question1">As profissões estão divididas em 3 setores principais: Primário, Secundário e Terciário. Das seguintes profissões quais são as que pertencem ao setor primário?</string>

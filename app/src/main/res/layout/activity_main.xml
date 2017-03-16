@@ -21,88 +21,70 @@
         android:paddingTop="@dimen/activity_vertical_margin"
         tools:context="com.example.android.quizapp.MainActivity">
 
-        <!--    <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ocupations"
-                android:layout_marginBottom="26dp"
-                android:layout_alignParentBottom="true"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true" />-->
 
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="146dp"
+            android:layout_height="@dimen/image_height"
+            android:layout_alignParentBottom="true"
             android:src="@drawable/jobs" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="@dimen/margin_padding_1"
             android:text="@string/personal_info"
-            android:textSize="16sp"
+            android:textSize="@dimen/title_size"
             android:textStyle="bold" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="@dimen/margin_padding_1"
             android:orientation="horizontal">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/name"
-                android:textSize="16sp" />
+                android:textSize="@dimen/title_size" />
 
             <com.example.android.quizapp.My_EditText
                 android:id="@+id/name_value"
+                style="style/Style_edittext"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:backgroundTint="@color/colorPrimary"
-                android:cursorVisible="false"
-                android:focusable="true"
-                android:focusableInTouchMode="true"
                 android:hint="@string/name_value"
-                android:imeOptions="actionDone"
                 android:inputType="textCapWords"
                 android:maxLength="25"
-                android:maxLines="1"
                 android:nextFocusRight="@+id/age_value"
-                android:textColor="@android:color/black"
-                android:textSize="14sp" />
+                android:textSize="@dimen/text_size"/>
 
             <com.example.android.quizapp.My_EditText
                 android:id="@+id/age_value"
+                style="style/Style_edittext"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:backgroundTint="@color/colorPrimary"
-                android:cursorVisible="false"
-                android:focusable="true"
-                android:focusableInTouchMode="true"
                 android:hint="@string/age_value"
                 android:imeOptions="actionDone"
                 android:inputType="number"
                 android:maxLength="3"
-                android:maxLines="1"
                 android:nextFocusDown="@+id/radiogroup_genre"
                 android:textAlignment="center"
-                android:textColor="@android:color/black"
-                android:textSize="14sp" />
+                android:textSize="@dimen/text_size"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/years"
-                android:textSize="14sp" />
+                android:textSize="@dimen/text_size" />
 
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="@dimen/margin_padding_1"
             android:orientation="horizontal">
 
             <TextView
@@ -111,7 +93,7 @@
                 android:layout_gravity="center_vertical"
                 android:gravity="center_vertical"
                 android:text="@string/genre"
-                android:textSize="16sp" />
+                android:textSize="@dimen/title_size" />
 
             <RadioGroup
                 android:id="@+id/radiogroup_genre"
@@ -131,7 +113,7 @@
                     android:onClick="genre_type"
                     android:text="@string/genre_male"
                     android:textColor="@color/colorPrimary"
-                    android:textSize="14sp" />
+                    android:textSize="@dimen/text_size" />
 
                 <RadioButton
                     android:id="@+id/genre_female"
@@ -144,7 +126,7 @@
                     android:onClick="genre_type"
                     android:text="@string/genre_female"
                     android:textColor="@color/colorSecondary"
-                    android:textSize="14sp" />
+                    android:textSize="@dimen/text_size" />
             </RadioGroup>
         </LinearLayout>
 
@@ -152,44 +134,37 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:layout_marginBottom="16dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginBottom="@dimen/margin_padding_2"
+            android:layout_marginLeft="@dimen/margin_padding_1"
+            android:layout_marginRight="@dimen/margin_padding_1"
+            android:layout_marginTop="@dimen/margin_padding_2"
             android:background="@android:color/darker_gray" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="@dimen/margin_padding_1"
             android:text="@string/quiz_questions"
-            android:textSize="16sp"
+            android:textSize="@dimen/title_size"
             android:textStyle="bold" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:orientation="horizontal">
+        <LinearLayout style="@style/Style_question_linearlayout">
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="1. "
-                android:textSize="14sp"
-                android:textStyle="bold" />
+                android:id="@+id/textView"
+                style="@style/Style_questionnumber"
+                android:text="1. " />
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/question1"
-                android:textSize="14sp" />
+                android:id="@+id/question1"
+                style="@style/Style_questioncontent"
+                android:text="@string/question1" />
         </LinearLayout>
 
         <TableLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="@dimen/margin_padding_1"
             android:stretchColumns="1">
 
             <TableRow
@@ -198,25 +173,13 @@
 
                 <CheckBox
                     android:id="@+id/checkbox_qt1_1"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="left|center_vertical"
-                    android:layout_weight="1"
-                    android:buttonTint="@android:color/black"
-                    android:focusable="false"
-                    android:focusableInTouchMode="false"
+                    style="@style/Style_checkbox"
                     android:onClick="checkbox_qt1_1"
                     android:text="@string/question1_checkbox1_value" />
 
                 <CheckBox
                     android:id="@+id/checkbox_qt1_2"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="left|center_vertical"
-                    android:layout_weight="1"
-                    android:buttonTint="@android:color/black"
-                    android:focusable="false"
-                    android:focusableInTouchMode="false"
+                    style="@style/Style_checkbox"
                     android:onClick="checkbox_qt1_2"
                     android:text="@string/question1_checkbox2_value" />
             </TableRow>
@@ -227,56 +190,35 @@
 
                 <CheckBox
                     android:id="@+id/checkbox_qt1_3"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="left|center_vertical"
-                    android:layout_weight="1"
-                    android:buttonTint="@android:color/black"
-                    android:focusable="false"
-                    android:focusableInTouchMode="false"
+                    style="@style/Style_checkbox"
                     android:onClick="checkbox_qt1_3"
                     android:text="@string/question1_checkbox3_value" />
 
                 <CheckBox
                     android:id="@+id/checkbox_qt1_4"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="left|center_vertical"
-                    android:layout_weight="1"
-                    android:buttonTint="@android:color/black"
-                    android:focusable="false"
-                    android:focusableInTouchMode="false"
+                    style="@style/Style_checkbox"
                     android:onClick="checkbox_qt1_4"
                     android:text="@string/question1_checkbox4_value" />
             </TableRow>
         </TableLayout>
 
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:orientation="horizontal">
+        <LinearLayout style="@style/Style_question_linearlayout">
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="2. "
-                android:textSize="14sp"
-                android:textStyle="bold" />
+                style="@style/Style_questionnumber"
+                android:text="2. " />
 
             <TextView
                 android:id="@+id/question2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/question2"
-                android:textSize="14sp" />
+                style="@style/Style_questioncontent"
+                android:text="@string/question2" />
         </LinearLayout>
 
         <TableLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="@dimen/margin_padding_1"
             android:stretchColumns="1">
 
             <TableRow
@@ -285,25 +227,13 @@
 
                 <CheckBox
                     android:id="@+id/checkbox_qt2_1"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="left|center_vertical"
-                    android:layout_weight="1"
-                    android:buttonTint="@android:color/black"
-                    android:focusable="false"
-                    android:focusableInTouchMode="false"
+                    style="@style/Style_checkbox"
                     android:onClick="checkbox_qt2_1"
                     android:text="@string/question2_checkbox1_value" />
 
                 <CheckBox
                     android:id="@+id/checkbox_qt2_2"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="left|center_vertical"
-                    android:layout_weight="1"
-                    android:buttonTint="@android:color/black"
-                    android:focusable="false"
-                    android:focusableInTouchMode="false"
+                    style="@style/Style_checkbox"
                     android:onClick="checkbox_qt2_2"
                     android:text="@string/question2_checkbox2_value" />
             </TableRow>
@@ -314,294 +244,185 @@
 
                 <CheckBox
                     android:id="@+id/checkbox_qt2_3"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="left|center_vertical"
-                    android:layout_weight="1"
-                    android:buttonTint="@android:color/black"
-                    android:focusable="false"
-                    android:focusableInTouchMode="false"
+                    style="@style/Style_checkbox"
                     android:onClick="checkbox_qt2_3"
                     android:text="@string/question2_checkbox3_value" />
 
                 <CheckBox
                     android:id="@+id/checkbox_qt2_4"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="left|center_vertical"
-                    android:layout_weight="1"
-                    android:buttonTint="@android:color/black"
-                    android:focusable="false"
-                    android:focusableInTouchMode="false"
+                    style="@style/Style_checkbox"
                     android:onClick="checkbox_qt2_4"
                     android:text="@string/question2_checkbox4_value" />
             </TableRow>
         </TableLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:orientation="horizontal">
+        <LinearLayout style="@style/Style_question_linearlayout">
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="3. "
-                android:textSize="14sp"
-                android:textStyle="bold" />
+                style="@style/Style_questionnumber"
+                android:text="3. " />
 
             <TextView
                 android:id="@+id/question_3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/question3"
-                android:textSize="14sp" />
+                style="@style/Style_questioncontent"
+                android:text="@string/question3" />
         </LinearLayout>
 
         <RadioGroup
             android:id="@+id/radiogroup_question3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_weight="1"
-            android:orientation="horizontal">
+            style="@style/Style_radiogroup">
 
             <RadioButton
                 android:id="@+id/radiobutton_qt3_1"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:buttonTint="@android:color/black"
+                style="@style/Style_radiobutton"
                 android:onClick="radiobutton_qt3"
-                android:text="@string/question3_radiobutton1_value"
-                android:textSize="14sp" />
+                android:text="@string/question3_radiobutton1_value" />
 
             <RadioButton
                 android:id="@+id/radiobutton_qt3_2"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:buttonTint="@android:color/black"
+                style="@style/Style_radiobutton"
                 android:onClick="radiobutton_qt3"
-                android:text="@string/question3_radiobutton2_value"
-                android:textSize="14sp" />
+                android:text="@string/question3_radiobutton2_value" />
 
             <RadioButton
                 android:id="@+id/radiobutton_qt3_3"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:buttonTint="@android:color/black"
+                style="@style/Style_radiobutton"
                 android:onClick="radiobutton_qt3"
-                android:text="@string/question3_radiobutton3_value"
-                android:textSize="14sp" />
+                android:text="@string/question3_radiobutton3_value" />
         </RadioGroup>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:orientation="horizontal">
+        <LinearLayout style="@style/Style_question_linearlayout">
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="4. "
-                android:textSize="14sp"
-                android:textStyle="bold" />
+                style="@style/Style_questionnumber"
+                android:text="4. " />
 
             <TextView
                 android:id="@+id/question_4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/question4"
-                android:textSize="14sp" />
+                style="@style/Style_questioncontent"
+                android:text="@string/question4" />
         </LinearLayout>
 
         <RadioGroup
             android:id="@+id/radiogroup_question4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_weight="1"
-            android:orientation="horizontal">
+            style="@style/Style_radiogroup">
 
             <RadioButton
                 android:id="@+id/radiobutton_qt4_1"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:buttonTint="@android:color/black"
+                style="@style/Style_radiobutton"
                 android:onClick="radiobutton_qt4"
-                android:text="@string/question4_radiobutton1_value"
-                android:textSize="14sp" />
+                android:text="@string/question4_radiobutton1_value" />
 
             <RadioButton
                 android:id="@+id/radiobutton_qt4_2"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:buttonTint="@android:color/black"
+                style="@style/Style_radiobutton"
                 android:onClick="radiobutton_qt4"
-                android:text="@string/question4_radiobutton2_value"
-                android:textSize="14sp" />
+                android:text="@string/question4_radiobutton2_value" />
 
             <RadioButton
                 android:id="@+id/radiobutton_qt4_3"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:buttonTint="@android:color/black"
+                style="@style/Style_radiobutton"
                 android:onClick="radiobutton_qt4"
-                android:text="@string/question4_radiobutton3_value"
-                android:textSize="14sp" />
+                android:text="@string/question4_radiobutton3_value" />
         </RadioGroup>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:orientation="horizontal">
+        <LinearLayout style="@style/Style_question_linearlayout">
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="5. "
-                android:textSize="14sp"
-                android:textStyle="bold" />
+                style="@style/Style_questionnumber"
+                android:text="5. " />
 
             <TextView
                 android:id="@+id/question_5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/question5"
-                android:textSize="14sp" />
+                style="@style/Style_questioncontent"
+                android:text="@string/question5" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="@dimen/margin_padding_1"
             android:orientation="horizontal">
 
             <com.example.android.quizapp.My_EditText
                 android:id="@+id/edittext_qt5_1"
-                android:layout_width="0dp"
+                style="style/Style_edittext"
+                android:layout_width="@dimen/margin_padding_0"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:backgroundTint="@color/colorPrimary"
-                android:cursorVisible="false"
-                android:focusable="true"
-                android:focusableInTouchMode="true"
                 android:hint="@string/name_value"
-                android:imeOptions="actionDone"
                 android:inputType="textCapWords"
-                android:maxLength="25"
-                android:maxLines="1"
+                android:maxLength="6"
                 android:nextFocusDown="@+id/radiogroup_question6"
-                android:textColor="@android:color/black"
-                android:textSize="14sp" />
+                android:textSize="@dimen/text_size"/>
 
             <TextView
                 android:id="@+id/textview_qt5_2"
-                android:layout_width="0dp"
+                android:layout_width="@dimen/margin_padding_0"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:text=""
-                android:textSize="14sp" />
+                android:textSize="@dimen/text_size" />
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:orientation="horizontal">
+        <LinearLayout style="@style/Style_question_linearlayout">
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="6. "
-                android:textSize="14sp"
-                android:textStyle="bold" />
+                style="@style/Style_questionnumber"
+                android:text="6. " />
 
             <TextView
                 android:id="@+id/question_6"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/question6"
-                android:textSize="14sp" />
+                style="@style/Style_questioncontent"
+                android:text="@string/question6" />
         </LinearLayout>
 
         <RadioGroup
             android:id="@+id/radiogroup_question6"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_weight="1"
-            android:orientation="horizontal">
+            style="@style/Style_radiogroup">
 
             <RadioButton
                 android:id="@+id/radiobutton_qt6_1"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:buttonTint="@android:color/black"
+                style="@style/Style_radiobutton"
                 android:onClick="radiobutton_qt6"
-                android:text="@string/question6_radiobutton1_value"
-                android:textSize="14sp" />
+                android:text="@string/question6_radiobutton1_value" />
 
             <RadioButton
                 android:id="@+id/radiobutton_qt6_2"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:buttonTint="@android:color/black"
+                style="@style/Style_radiobutton"
                 android:onClick="radiobutton_qt6"
-                android:text="@string/question6_radiobutton2_value"
-                android:textSize="14sp" />
+                android:text="@string/question6_radiobutton2_value" />
 
             <RadioButton
                 android:id="@+id/radiobutton_qt6_3"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:buttonTint="@android:color/black"
+                style="@style/Style_radiobutton"
                 android:onClick="radiobutton_qt6"
-                android:text="@string/question6_radiobutton3_value"
-                android:textSize="14sp" />
+                android:text="@string/question6_radiobutton3_value" />
         </RadioGroup>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="@dimen/margin_padding_2"
             android:orientation="horizontal">
 
             <Button
                 android:id="@+id/button_reset"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
+                style="@style/Style_button"
                 android:onClick="reset_result"
-                android:text="@string/reset"
-                android:textSize="14sp" />
+                android:text="@string/reset" />
 
             <Button
                 android:id="@+id/button_result"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
+                style="@style/Style_button"
                 android:onClick="show_result"
                 android:text="@string/result" />
 
             <Button
                 android:id="@+id/button_submit"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
+                style="@style/Style_button"
                 android:onClick="submitResult"
                 android:text="@string/submit" />
 
